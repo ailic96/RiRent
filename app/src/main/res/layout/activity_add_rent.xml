@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRentActivity">
+
+    <TextView
+        android:id="@+id/display_text"
+        android:layout_width="412dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Novi unos:"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/rent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/display_text"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Stanarina"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/ristan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rent"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Ri Stan"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/electricity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ristan"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Struja"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/internet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/electricity"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Internet"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/stairs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/internet"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Čišćenje stubišta"
+        android:inputType="numberDecimal" />
+
+    <Spinner
+        android:id="@+id/date"
+        android:layout_width="139dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/stairs"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="122dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stairs"
+        android:layout_alignParentLeft="false"
+        android:layout_centerHorizontal="true"
+        android:text="DODAJ" />
+
+</RelativeLayout>
