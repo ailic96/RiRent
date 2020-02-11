@@ -30,8 +30,9 @@
             android:layout_toRightOf="@id/profileIv"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/date_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Mjesec:"
@@ -41,10 +42,38 @@
                 android:fontFamily="sans-serif-light"/>
 
             <TextView
-                android:id="@+id/rent"
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mjesec vrijednost"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-light"/>
+
+            <TextView
+                android:id="@+id/rent_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Stanarina:"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"/>
+
+            <TextView
+                android:id="@+id/rent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stanarina vrijednost"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"/>
+
+            <TextView
+                android:id="@+id/ristan_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ri Stan: "
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -57,6 +86,15 @@
                 android:text="Ri Stan"
                 android:textColor="#000000"
                 android:textSize="18sp"
+                android:fontFamily="sans-serif-light"/>
+
+            <TextView
+                android:id="@+id/electricity_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Struja: "
+                android:textColor="#000000"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-light"/>
 
@@ -64,14 +102,13 @@
                 android:id="@+id/electricity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Struja"
+                android:text="Struja vrijednost"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold"
                 android:fontFamily="sans-serif-light"/>
 
             <TextView
-                android:id="@+id/internet"
+                android:id="@+id/internet_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Internet: "
@@ -81,7 +118,16 @@
                 android:fontFamily="sans-serif-light"/>
 
             <TextView
-                android:id="@+id/stairs"
+                android:id="@+id/internet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Internet vrijednost "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"/>
+
+            <TextView
+                android:id="@+id/stairs_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Stubište: "
@@ -90,7 +136,90 @@
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-light"
                 />
+            <TextView
+                android:id="@+id/stairs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stubište vrijednost "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total_expenses_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukupne režije: "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total_expenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukupne režije vrijednost "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukupno: "
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukupna vrijednost"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total_person_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ukupno po osobi: "
+                android:textColor="#000000"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                />
+
+            <TextView
+                android:id="@+id/total_person"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Ukupna vrijednost po osobi "
+                android:textColor="#000000"
+                android:textSize="19sp"/>
+
         </LinearLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editButton"
+            android:src="@drawable/ic_edit"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+
     </RelativeLayout>
 
 

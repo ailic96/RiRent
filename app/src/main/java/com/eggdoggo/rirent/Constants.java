@@ -16,7 +16,10 @@ public class Constants {
     public static final String C_INTERNET = "INTERNET";
     public static final String C_STAIRS = "STAIRS";
     public static final String C_DATE = "DATE";
-    //public static final String C_TOTAL = "TOTAL";
+    public static final String C_TOTAL = "TOTAL";
+    public static final String C_TOTAL_EXPENSES = "TOTAL_EXPENSES";
+    public static final String C_TOTAL_PERSON = "TOTAL_PERSON";
+    public static final String C_NUM_PEOPLE= "NUM_PEOPLE";
     public static final String C_ADD_TIMESTAMP = "ADD_TIMESTAMP";
     public static final String C_UPDATE_TIMESTAMP = "UPDATE_TIMESTAMP";
     //Create query for table
@@ -27,6 +30,10 @@ public class Constants {
             + C_ELECTRICITY + " TEXT,"
             + C_INTERNET + " TEXT,"
             + C_STAIRS + " TEXT,"
+            + C_TOTAL + " TEXT,"
+            + C_TOTAL_EXPENSES + " TEXT,"
+            + C_TOTAL_PERSON + " TEXT,"
+            + C_NUM_PEOPLE + " TEXT,"
             + C_DATE + " TEXT,"
             + C_ADD_TIMESTAMP + " TEXT,"
             + C_UPDATE_TIMESTAMP + " TEXT"

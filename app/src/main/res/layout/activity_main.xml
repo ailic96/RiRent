@@ -15,31 +15,21 @@
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addFabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addFabButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        app:fabSize="normal"
-        app:elevation="6dp"
-        android:src="@android:drawable/ic_input_add"
-        />
-    <!--Your comment
-    <ImageButton
-        android:id="@+id/addFabButton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="#7B1FA2"
-        android:baselineAlignBottom="true"
-        app:srcCompat="@android:drawable/ic_input_add" />-->
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#1976D2"
+        app:elevation="6dp"
+        app:fabSize="normal" />
+
 </RelativeLayout>
