@@ -18,7 +18,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="Novi unos:"
+        android:text="@string/text_addTitle"
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -28,108 +28,136 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/display_text"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
         android:ems="10"
         android:gravity="center"
-        android:hint="Stanarina"
+        android:hint="@string/hint_rent"
         android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/ristan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rent"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
         android:ems="10"
         android:gravity="center"
-        android:hint="Ri Stan"
+        android:hint="@string/hint_ristan"
         android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/electricity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ristan"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
         android:ems="10"
         android:gravity="center"
-        android:hint="Struja"
+        android:hint="@string/hint_elect"
         android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/internet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/electricity"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
         android:ems="10"
         android:gravity="center"
-        android:hint="Internet"
+        android:hint="@string/hint_net"
         android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/stairs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/internet"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
         android:ems="10"
         android:gravity="center"
-        android:hint="Čišćenje stubišta"
-        android:inputType="numberDecimal" />
+        android:hint="@string/hint_stairs"
+        android:inputType="numberDecimal"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/peopleText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/stairs"
-        android:layout_marginLeft="16dp"
-        android:text="Broj osoba: " />
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:gravity="center"
+        android:text="@string/text_numPeople" />
 
     <Spinner
         android:id="@+id/peopleNum"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/peopleText"
-        android:layout_marginLeft="13dp"
-        android:layout_marginTop="14dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
         android:background="@android:drawable/btn_dropdown"
+        android:gravity="center"
         android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/peopleNum"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="60dp"
+        android:gravity="center"
+        android:text="@string/text_date" />
 
     <Spinner
         android:id="@+id/date"
-        android:layout_width="148dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dateText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="122dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="60dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown" />
 
     <Button
         android:id="@+id/addButton"
-        android:layout_width="103dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/stairs"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerHorizontal="false"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="16dp"
-        android:text="DODAJ" />
-
-    <TextView
-        android:id="@+id/dateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/stairs"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginLeft="141dp"
-        android:text="Mjesec:" />
+        android:layout_below="@id/date"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="60dp"
+        android:background="@drawable/background"
+        android:text="@string/button_add"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
