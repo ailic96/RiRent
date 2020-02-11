@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddRentActivity">
+    tools:context=".EditRentActivity">
 
     <TextView
         android:id="@+id/display_text"
@@ -19,7 +19,6 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Novi unos:"
-        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -31,8 +30,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Stanarina"
-        android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/ristan"
@@ -42,8 +40,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Ri Stan"
-        android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/electricity"
@@ -53,8 +50,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Struja"
-        android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/internet"
@@ -64,8 +60,7 @@
         android:ems="10"
         android:gravity="center"
         android:hint="Internet"
-        android:inputType="numberDecimal"
-        android:textColor="#000000" />
+        android:inputType="numberDecimal" />
 
     <EditText
         android:id="@+id/stairs"

@@ -28,9 +28,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Insert info function
 
-    public long insertInfo(String rent, String ristan, String electricity,
-                           String internet, String stairs, String date,
-                           String addTimeStamp, String updateTimeStamp){
+    public long insertInfo(String rent, String ristan, String electricity, String internet,
+                           String stairs, String total, String totalExpenses, String totalPerson,
+                           String numPeople, String date, String addTimeStamp, String updateTimeStamp){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Constants.C_RENT, rent);
@@ -38,6 +38,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Constants.C_ELECTRICITY, electricity);
         values.put(Constants.C_INTERNET, internet);
         values.put(Constants.C_STAIRS, stairs);
+        values.put(Constants.C_TOTAL, total);
+        values.put(Constants.C_TOTAL_EXPENSES, totalExpenses);
+        values.put(Constants.C_TOTAL_PERSON, totalPerson);
+        values.put(Constants.C_NUM_PEOPLE, numPeople);
         values.put(Constants.C_DATE, date);
         values.put(Constants.C_ADD_TIMESTAMP, addTimeStamp);
         values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
@@ -46,6 +50,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return id;
     }
+
+    //Update information
+    public void updateInfo(String id, String rent, String ristan, String electricity, String internet,
+                           String stairs, String total, String totalExpenses, String totalPerson,
+                           String numPeople, String date, String addTimeStamp, String updateTimeStamp){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //values.put(Constants.C_ID, id);
+        values.put(Constants.C_RENT, rent);
+        values.put(Constants.C_RISTAN, ristan);
+        values.put(Constants.C_ELECTRICITY, electricity);
+        values.put(Constants.C_INTERNET, internet);
+        values.put(Constants.C_STAIRS, stairs);
+        values.put(Constants.C_TOTAL, total);
+        values.put(Constants.C_TOTAL_EXPENSES, totalExpenses);
+        values.put(Constants.C_TOTAL_PERSON, totalPerson);
+        values.put(Constants.C_NUM_PEOPLE, numPeople);
+        values.put(Constants.C_DATE, date);
+        values.put(Constants.C_ADD_TIMESTAMP, addTimeStamp);
+        values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
+
+        db.update(Constants.TABLE_NAME, values, Constants.C_ID + " =? ", new String[]{id});
+        db.close();
+    }
+
+
+
 
     public ArrayList<Model> getAllData(String orderBy){
 
@@ -60,12 +92,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do{
                 Model model = new Model(
                         ""+cursor.getInt(cursor.getColumnIndex(Constants.C_ID)),
-                        "Stanarina :"+cursor.getString(cursor.getColumnIndex(Constants.C_RENT)),
-                        "Ri Stan: "+cursor.getString(cursor.getColumnIndex(Constants.C_RISTAN)),
-                        "Struja: "+cursor.getString(cursor.getColumnIndex(Constants.C_ELECTRICITY)),
-                        "Internet: "+cursor.getString(cursor.getColumnIndex(Constants.C_INTERNET)),
-                        "Stubište: "+cursor.getString(cursor.getColumnIndex(Constants.C_STAIRS)),
-                        "Mjesec: "+cursor.getString(cursor.getColumnIndex(Constants.C_DATE)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_RENT)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_RISTAN)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_ELECTRICITY)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_INTERNET)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_STAIRS)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_TOTAL)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_TOTAL_EXPENSES)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_TOTAL_PERSON)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_NUM_PEOPLE)),
+                        ""+cursor.getString(cursor.getColumnIndex(Constants.C_DATE)),
                         ""+cursor.getString(cursor.getColumnIndex(Constants.C_ADD_TIMESTAMP)),
                         ""+cursor.getInt(cursor.getColumnIndex(Constants.C_UPDATE_TIMESTAMP))
                 );
@@ -75,5 +111,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return arrayList;
     }
-
 }
