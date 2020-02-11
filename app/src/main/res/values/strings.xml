@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">RiRent</string>
+    <string name="text_addTitle">Novi unos</string>
+    <string name="text_editTitle">Ažuriranje podataka</string>
+    <string name="hint_rent">Stanarina</string>
+    <string name="hint_ristan">Ri Stan</string>
+    <string name="hint_elect">Struja</string>
+    <string name="hint_net">Internet</string>
+    <string name="hint_stairs">Čišćenje stubišta</string>
+    <string name="button_add">DODAJ</string>
+    <string name="button_change">IZMIJENI</string>
+    <string name="text_date">Mjesec</string>
+    <string name="text_numPeople">Broj osoba</string>
+
 </resources>
