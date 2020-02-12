@@ -1,5 +1,7 @@
 package com.eggdoggo.rirent;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,13 +18,16 @@ import android.widget.Toast;
 public class EditRentActivity extends AppCompatActivity {
 
     Button addButton;
+    @Nullable
     ActionBar actionBar;
 
     private EditText pRentEt, pRistanEt, pElectricityEt, pInternetEt, pStairsEt;
     private Spinner pDateEt, pPersonEt;
     private float totalF, totaleF, totalpF;
+    @Nullable
     private String id, rent, ristan, electricity, internet, stairs, total, total_expenses, total_person, peopleNum, date, addTimeStamp, updateTimeStamp;
     private boolean editMode = false;
+    @Nullable
     private DatabaseHelper dbHelper;
 
     @Override
@@ -124,6 +129,7 @@ public class EditRentActivity extends AppCompatActivity {
         });
     }
 
+
     private void getData() {
 
         rent = ""+pRentEt.getText().toString().trim();
@@ -134,6 +140,13 @@ public class EditRentActivity extends AppCompatActivity {
         peopleNum = ""+pPersonEt.getSelectedItem().toString().trim();
 
         if(editMode){
+
+            rent = dbHelper.checkIfNull(rent);
+            ristan = dbHelper.checkIfNull(ristan);
+            electricity = dbHelper.checkIfNull(electricity);
+            internet = dbHelper.checkIfNull(internet);
+            stairs = dbHelper.checkIfNull(stairs);
+
 
             date = ""+pDateEt.getSelectedItem().toString().trim();
             String timeStamp = ""+System.currentTimeMillis();
@@ -149,7 +162,6 @@ public class EditRentActivity extends AppCompatActivity {
             //Expenses per person (converted to type float
             totalpF = (Float.valueOf(rent)+Float.valueOf(ristan)+Float.valueOf(electricity)+
                     Float.valueOf(internet)+Float.valueOf(stairs))/Float.valueOf(peopleNum);
-
 
             //Expenses converted to String
             total = Float.toString(totalF);
@@ -196,12 +208,14 @@ public class EditRentActivity extends AppCompatActivity {
         }
     }
 
+
     public boolean onSupportNavigateUp(){
         onBackPressed();
         return super.onSupportNavigateUp();
     }
 
-    public void setSpinText(Spinner spin, String text)
+
+    public void setSpinText(@NonNull Spinner spin, @NonNull String text)
     {
         for(int i= 0; i < spin.getAdapter().getCount(); i++)
         {
@@ -209,6 +223,13 @@ public class EditRentActivity extends AppCompatActivity {
             {
                 spin.setSelection(i);
             }
+        }
+    }
+
+
+    public void checkIfNull(String value){
+        if (value.length()==0) {
+            value = "0";
         }
     }
 }

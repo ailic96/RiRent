@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
@@ -16,12 +19,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(@NonNull SQLiteDatabase db) {
         db.execSQL(Constants.CREATE_TABLE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(@NonNull SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
         onCreate(db);
     }
@@ -47,8 +50,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Constants.C_UPDATE_TIMESTAMP, updateTimeStamp);
 
         long id = db.insert(Constants.TABLE_NAME, null, values);
+
         db.close();
         return id;
+
     }
 
     //Update information
@@ -58,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        //values.put(Constants.C_ID, id);
+        values.put(Constants.C_ID, id);
         values.put(Constants.C_RENT, rent);
         values.put(Constants.C_RISTAN, ristan);
         values.put(Constants.C_ELECTRICITY, electricity);
@@ -77,8 +82,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    //Delete information
+    public void deleteInfo(String id){
 
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(Constants.TABLE_NAME, Constants.C_ID + " =? ", new String[]{id});
+        db.close();
+    }
 
+    @NonNull
     public ArrayList<Model> getAllData(String orderBy){
 
         ArrayList<Model> arrayList = new ArrayList<>();
@@ -110,5 +122,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         db.close();
         return arrayList;
+    }
+
+    public String checkIfNull(String value){
+        if (value.length()==0) {
+            value = "0";
+            return "0";
+        }
+        else
+            return value;
     }
 }

@@ -1,5 +1,6 @@
 package com.eggdoggo.rirent;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class AddRentActivity extends AppCompatActivity {
 
     Button addButton;
+    @Nullable
     ActionBar actionBar;
 
     private EditText pRentEt, pRistanEt, pElectricityEt, pInternetEt, pStairsEt;
@@ -24,10 +26,12 @@ public class AddRentActivity extends AppCompatActivity {
     private float totalF, totaleF, totalpF;
     private String rent, ristan, electricity, internet, stairs, total, total_expenses, total_person, numPeople, date, timeStamp;
 
+    @Nullable
     private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_rent);
 
@@ -92,6 +96,13 @@ public class AddRentActivity extends AppCompatActivity {
 
         timeStamp = ""+System.currentTimeMillis();
 
+        //Checks if no value is inserted, puts "0" by default
+        rent = dbHelper.checkIfNull(rent);
+        ristan = dbHelper.checkIfNull(ristan);
+        electricity = dbHelper.checkIfNull(electricity);
+        internet = dbHelper.checkIfNull(internet);
+        stairs = dbHelper.checkIfNull(stairs);
+
         //Total expense calculation (converted to type Float)
         totalF = Float.valueOf(rent)+Float.valueOf(ristan)+Float.valueOf(electricity)+
                 Float.valueOf(internet)+Float.valueOf(stairs);
@@ -103,7 +114,6 @@ public class AddRentActivity extends AppCompatActivity {
         //Expenses per person (converted to type float)
         totalpF = (Float.valueOf(rent)+Float.valueOf(ristan)+Float.valueOf(electricity)+
                 Float.valueOf(internet)+Float.valueOf(stairs))/Float.valueOf(numPeople);
-
 
         //Expenses converted to String
         total = Float.toString(totalF);
@@ -125,6 +135,7 @@ public class AddRentActivity extends AppCompatActivity {
                 ""+timeStamp
         );
     }
+
 
     public boolean onSupportNavigateUp(){
         onBackPressed();

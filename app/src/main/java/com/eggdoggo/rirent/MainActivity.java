@@ -1,11 +1,14 @@
 package com.eggdoggo.rirent;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -15,8 +18,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton fab;
+    @Nullable
     ActionBar actionBar;
     RecyclerView mRecyclerView;
+    @Nullable
     DatabaseHelper databaseHelper;
 
     @Override
@@ -52,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         showRecord();
     }
 
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event){
         if(keyCode == event.KEYCODE_BACK){
             moveTaskToBack(true);
         }

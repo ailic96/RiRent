@@ -22,6 +22,7 @@ public class Constants {
     public static final String C_NUM_PEOPLE= "NUM_PEOPLE";
     public static final String C_ADD_TIMESTAMP = "ADD_TIMESTAMP";
     public static final String C_UPDATE_TIMESTAMP = "UPDATE_TIMESTAMP";
+
     //Create query for table
     public static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + C_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

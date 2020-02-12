@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AddRentActivity">
 
+    <!--Your comment
     <TextView
         android:id="@+id/display_text"
         android:layout_width="412dp"
@@ -22,14 +23,26 @@
         android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold" />
+        -->
+    <ImageView
+        android:id="@+id/imageInsert"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:src="@drawable/ic_input" />
+
 
     <EditText
         android:id="@+id/rent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/display_text"
+        android:layout_below="@id/imageInsert"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="16dp"
         android:layout_marginRight="60dp"
         android:background="@drawable/background"
         android:ems="10"
@@ -45,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rent"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="60dp"
         android:background="@drawable/background"
         android:ems="10"
@@ -115,11 +128,11 @@
     <Spinner
         android:id="@+id/peopleNum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/peopleText"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginRight="110dp"
         android:background="@android:drawable/btn_dropdown"
         android:gravity="center"
         android:spinnerMode="dropdown" />
@@ -139,11 +152,11 @@
     <Spinner
         android:id="@+id/date"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@id/dateText"
-        android:layout_marginLeft="60dp"
+        android:layout_marginLeft="110dp"
         android:layout_marginTop="0dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginRight="110dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown" />
 
@@ -153,11 +166,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/date"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="60dp"
         android:background="@drawable/background"
         android:text="@string/button_add"
         android:textSize="25sp"
         android:textStyle="bold" />
+
 
 </RelativeLayout>

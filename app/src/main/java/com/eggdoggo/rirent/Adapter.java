@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,10 +22,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
     private Context context;
     private ArrayList<Model> arrayList;
 
+    DatabaseHelper databaseHelper;
+
+
     public Adapter(Context context, ArrayList<Model> arrayList) {
         this.context = context;
         this.arrayList = arrayList;
+        databaseHelper = new DatabaseHelper(context, Constants.DB_NAME, null, Constants.DB_VERSION);
     }
+
 
     @NonNull
     @Override
@@ -34,6 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
         return new Holder(view);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, final int position) {
@@ -86,7 +93,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 );
             }
         });
+
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteDialog(
+                        ""+id
+                );
+            }
+        });
     }
+
 
     private void editDialog(String position, final String id, final String rent, final String ristan,
                             final String electricity, final String internet, final String stairs,final String total, final String total_expenses, final String total_person,
@@ -94,7 +111,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Ažuriranje podataka");
-        builder.setMessage("Želite li izmjeniti podatke?");
+        builder.setMessage("Želite li izmijeniti podatke?");
         builder.setCancelable(false);
         builder.setIcon(R.drawable.ic_edit);
 
@@ -110,7 +127,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 intent.putExtra("INTERNET", internet);
                 intent.putExtra("STAIRS", stairs);
                 intent.putExtra("TOTAL", total);
-                intent.putExtra("TOTAL_EXPENSES", total);
+                intent.putExtra("TOTAL_EXPENSES", total_expenses);
                 intent.putExtra("TOTAL_PERSON", total_person);
                 intent.putExtra("NUM_PEOPLE", num_people);
                 intent.putExtra("DATE", date);
@@ -123,10 +140,39 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
         builder.setNegativeButton("Ne", new DialogInterface.OnClickListener() {
             @Override
+            public void onClick(@NonNull DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.create().show();
+    }
+
+
+
+    private void deleteDialog(final String id){
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Brisanje podataka");
+        builder.setMessage("Želite li obrisati podatke?");
+        builder.setCancelable(false);
+        builder.setIcon(R.drawable.ic_delete_item);
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                databaseHelper.deleteInfo(id);
+                ((MainActivity)context).onResume();
+                Toast.makeText(context, "Brisanje uspješno!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+            @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
+
         builder.create().show();
     }
 
@@ -139,6 +185,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
         TextView rent, ristan, electricity, internet, stairs, total, total_expenses, total_person, date;
         ImageButton editButton;
+        ImageButton deleteButton;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -155,6 +202,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             date = itemView.findViewById(R.id.date);
 
             editButton = itemView.findViewById(R.id.editButton);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
         }
     }
 }
