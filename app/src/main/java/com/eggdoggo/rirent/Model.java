@@ -37,7 +37,6 @@ public class Model {
 
 
     public String getRistan() {return ristan; }
-
     public void setRistan(String ristan) {
         this.ristan = ristan;
     }
@@ -46,23 +45,15 @@ public class Model {
     public String getElectricity() {
         return electricity;
     }
-    public void setElectricity(String electricity) {
-        this.electricity = electricity;
-    }
+    public void setElectricity(String electricity) { this.electricity = electricity; }
 
 
-    public String getInternet() {
-        return internet;
-    }
-    public void setInternet(String internet) {
-        this.internet = internet;
-    }
+    public String getInternet() { return internet;}
+    public void setInternet(String internet) { this.internet = internet; }
 
 
     public String getStairs() { return stairs; }
-    public void setStairs(String stairs) {
-        this.stairs = stairs;
-    }
+    public void setStairs(String stairs) { this.stairs = stairs; }
 
 
     public String getTotal(){ return total; }
@@ -70,9 +61,8 @@ public class Model {
 
 
     public String getTotalExpenses(){ return totalExpenses; }
-    public void setTotalExpenses(String totalExpenses) {
-        this.totalExpenses = totalExpenses;
-    }
+    public void setTotalExpenses(String totalExpenses) { this.totalExpenses = totalExpenses;}
+
 
     public String getTotalPerson(){ return totalPerson; }
     public void setTotalPerson(String totalPerson){ this.totalPerson = totalPerson; }
