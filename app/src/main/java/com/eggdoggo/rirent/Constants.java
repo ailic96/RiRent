@@ -1,5 +1,12 @@
 package com.eggdoggo.rirent;
 
+/*
+* Constants class creates SQLite database and a table with values used
+* in this app. When created, I was trying to figure out how Android works
+* so I missed assigning the right data types. As you can see, all values are textual
+* and it was a huge mistake, refactoring would take too long.
+* */
+
 public class Constants {
 
     //Database name
