@@ -5,31 +5,34 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
+
+/* DatabaseHelper class contains default constructor, table creating method and
+*  CRUD (Create, Read, Update, Delete) methods used in this app.
+*/
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-
+    /* Default constructor */
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, Constants.DB_NAME, null, Constants.DB_VERSION);
     }
 
+    /* Creates table */
     @Override
     public void onCreate(@NonNull SQLiteDatabase db) {
         db.execSQL(Constants.CREATE_TABLE);
     }
 
+    /* Refresh database */
     @Override
     public void onUpgrade(@NonNull SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
         onCreate(db);
     }
 
-    //Insert info function
+    /*Insert information method*/
 
     public long insertInfo(String rent, String ristan, String electricity, String internet,
                            String stairs, String total, String totalExpenses, String totalPerson,
@@ -56,7 +59,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //Update information
+    /*Update information method*/
+
     public void updateInfo(String id, String rent, String ristan, String electricity, String internet,
                            String stairs, String total, String totalExpenses, String totalPerson,
                            String numPeople, String date, String addTimeStamp, String updateTimeStamp){
@@ -82,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //Delete information
+    /*Delete  information method*/
     public void deleteInfo(String id){
 
         SQLiteDatabase db = getWritableDatabase();
@@ -90,6 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    /*Read and write information method*/
     @NonNull
     public ArrayList<Model> getAllData(String orderBy){
 
@@ -123,6 +128,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return arrayList;
     }
+
+    /* Checks if unassigned value exists. If NULL value does exist, it sets a zero value. */
 
     public String checkIfNull(String value){
         if (value.length()==0) {

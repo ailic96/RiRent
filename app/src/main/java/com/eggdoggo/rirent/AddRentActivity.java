@@ -11,16 +11,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+/*
+* AddRentActivity enables input and calculation of values. It's directly associated with
+* res/layout/activity_add_rent.xml.
+*/
 
 public class AddRentActivity extends AppCompatActivity {
 
-    Button addButton;
+
     @Nullable
     ActionBar actionBar;
-
+    Button addButton;
     private EditText pRentEt, pRistanEt, pElectricityEt, pInternetEt, pStairsEt;
     private Spinner pDateEt, pPersonEt;
     private float totalF, totaleF, totalpF;
@@ -35,6 +38,8 @@ public class AddRentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_rent);
 
+        /*Spinner enables date choosing in a drop list*/
+
         Spinner dropdown = findViewById(R.id.date);
         //create a list of items for the spinner.
         String[] items = new String[]{"Siječanj","Veljača","Ožujak","Travanj",
@@ -45,19 +50,22 @@ public class AddRentActivity extends AppCompatActivity {
         //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
 
+        /*Spinner enables number of people who pay the rent in a drop list*/
+
         Spinner dropdownPeople = findViewById(R.id.peopleNum);
-        //create a list of items for the spinner.
         String[] itemsPeople = new String[]{"1", "2", "3", "4", "5", "6"};
-        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
-        //There are multiple variations of this, but this is the basic variant.
         ArrayAdapter<String> adapterPeople = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsPeople);
-        //set the spinners adapter to the previously created one.
         dropdownPeople.setAdapter(adapterPeople);
+
+
+        /* Action bar control */
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Novi unos");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        /* Get values from numeric textfields in xml */
 
         pRentEt = findViewById(R.id.rent);
         pRistanEt = findViewById(R.id.ristan);
@@ -70,9 +78,11 @@ public class AddRentActivity extends AppCompatActivity {
 
         addButton = findViewById(R.id.addButton);
 
-        //Initiate database object in main function
+        /*Initiate database object in main function*/
         dbHelper = new DatabaseHelper(this, Constants.DB_NAME, null, Constants.DB_VERSION);
 
+
+        /* Enables value adding button functionality */
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +92,8 @@ public class AddRentActivity extends AppCompatActivity {
             }
         });
     }
+
+    /* Gets data from XML, calculates values and prepares data for database storage */
 
     private void getData() {
 
@@ -120,6 +132,7 @@ public class AddRentActivity extends AppCompatActivity {
         total_expenses = Float.toString(totaleF);
         total_person = Float.toString(totalpF);
 
+        //Inserts values calculated above by using a method defined in DatabaseHelper
         dbHelper.insertInfo(
                 ""+rent,
                 ""+ristan,
@@ -136,6 +149,7 @@ public class AddRentActivity extends AppCompatActivity {
         );
     }
 
+    /*Back button functionality*/
 
     public boolean onSupportNavigateUp(){
         onBackPressed();

@@ -1,5 +1,10 @@
 package com.eggdoggo.rirent;
 
+/*
+* Model class contains default constructor, getters and setters for values
+* used in the app.
+*/
+
 public class Model {
     String id, rent, ristan, electricity, internet, stairs, total, totalExpenses, totalPerson , numPeople, date, addTimeStamp, updateTimeStamp;
 

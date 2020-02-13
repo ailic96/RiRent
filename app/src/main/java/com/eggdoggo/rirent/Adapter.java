@@ -17,6 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/* Adapter class enables RecyclerView for viewing rent data.
+*
+* */
+
 public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
     private Context context;
@@ -24,6 +28,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
     DatabaseHelper databaseHelper;
 
+    /* Default constructor */
 
     public Adapter(Context context, ArrayList<Model> arrayList) {
         this.context = context;
@@ -45,6 +50,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
     @Override
     public void onBindViewHolder(@NonNull Holder holder, final int position) {
         Model model = arrayList.get(position);
+
         //get view
         final String id = model.getId();
         final String rent = model.getRent();
@@ -72,6 +78,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         //holder.num_people.setText(num_people);
         holder.date.setText(date);
 
+        /* Edit button functionality in recyclerView */
+
         holder.editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +102,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             }
         });
 
+        /* Delete button functionality in recyclerView */
+
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,6 +114,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         });
     }
 
+    /* Enables editing popup dialog and takes all values as parameters. It
+    *  also fetches data for editing*/
 
     private void editDialog(String position, final String id, final String rent, final String ristan,
                             final String electricity, final String internet, final String stairs,final String total, final String total_expenses, final String total_person,
@@ -119,6 +131,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
+                // fetch data
                 Intent intent = new Intent(context, EditRentActivity.class );
                 intent.putExtra("ID", id);
                 intent.putExtra("RENT", rent);
@@ -147,9 +160,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         builder.create().show();
     }
 
-
+    /*Enables delete popup dialog and uses id as an argument for deleting a value*/
 
     private void deleteDialog(final String id){
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Brisanje podataka");
         builder.setMessage("Želite li obrisati podatke?");
@@ -175,6 +189,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
         builder.create().show();
     }
+
+    /* Calculates current item count */
 
     @Override
     public int getItemCount() {
